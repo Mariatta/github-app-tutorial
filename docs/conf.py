@@ -29,11 +29,15 @@ author = "Mariatta Wijaya"
 # ones.
 extensions = ["sphinx.ext.intersphinx"]
 
+# Add any paths that contain templates here, relative to this directory.
+<<<<<<< HEAD:source/conf.py
+templates_path = ["_templates"]
+=======
+templates_path = ['_templates']
+
 # The master toctree document.
 master_doc = 'index'
-
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ["_templates"]
+>>>>>>> Move to docs directory:docs/conf.py
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
