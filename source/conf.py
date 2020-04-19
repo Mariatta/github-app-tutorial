@@ -29,19 +29,11 @@ author = "Mariatta Wijaya"
 # ones.
 extensions = ["sphinx.ext.intersphinx"]
 
-# Add any paths that contain templates here, relative to this directory.
-<<<<<<< HEAD
-<<<<<<< HEAD:source/conf.py
-templates_path = ["_templates"]
-=======
-templates_path = ['_templates']
-
 # The master toctree document.
 master_doc = 'index'
->>>>>>> Move to docs directory:docs/conf.py
-=======
+
+# Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
->>>>>>> Move to docs directory
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -59,11 +51,7 @@ html_theme = "alabaster"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-<<<<<<< HEAD
 # html_static_path = ["_static"]
-=======
-html_static_path = ["_static"]
->>>>>>> Move to docs directory
 
 html_theme_options = {
     "github_user": "mariatta",
