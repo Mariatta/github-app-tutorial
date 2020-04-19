@@ -9,6 +9,7 @@ Say It With Bots!
 This tutorial was prepared for PyCon US 2020. You're free to follow along from
 whereever you are.
 
+This documentation lives at: https://github-app-tutorial.readthedocs.io/
 
 .. toctree::
    :maxdepth: 2
