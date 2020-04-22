@@ -58,8 +58,8 @@ Certain API endpoints for GitHub Apps require JWT instead of OAuth access token.
 Since version 4.1, gidgethub comes several utilities to help with this. We will go further
 in detail in the :ref:`Building a GitHub App <gh_app_setup>` section.
 
-GitHub Actionns
----------------
+GitHub Actions
+--------------
 
 Since version 4.0, gidgethub provides support for working with
 `GitHub Actions <https://gidgethub.readthedocs.io/en/latest/actions.html>`_.
