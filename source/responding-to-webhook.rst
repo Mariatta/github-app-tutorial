@@ -69,8 +69,12 @@ However, since this is a GitHub App, we can't use the personal access token.
 We'll need to use the installation access token, using the ``get_installation_access_token``
 coroutine from :mod:`gidgethub.apps` module::
 
-    installation_access_token =
-        await apps.get_installation_access_token(gh, installation_id)
+    installation_access_token = await apps.get_installation_access_token(
+        gh,
+        installation_id=installation_id,
+        app_id=os.environ.get("GH_APP_ID"),
+        private_key=os.environ.get("GH_PRIVATE_KEY")
+    )
 
 
 The API calls will need to be change as follows::
@@ -141,7 +145,10 @@ comment::
     async def repo_installation_added(event, gh, *args, **kwargs):
         installation_id = event.data["installation"]["id"]
         installation_access_token = await apps.get_installation_access_token(
-            gh, installation_id
+            gh,
+            installation_id=installation_id,
+            app_id=os.environ.get("GH_APP_ID"),
+            private_key=os.environ.get("GH_PRIVATE_KEY"),
         )
         maintainer = event.data["sender"]["login"]
         message = f"Thanks for installing me, @{maintainer}! (I'm a bot)."
@@ -150,7 +157,10 @@ comment::
             url = f"/repos/{repository['full_name']}/issues/"
             response = await gh.post(
                 url,
-                data={"title": "Mariatta's bot was installed", "body": message},
+                data={
+                    "title": "Mariatta's bot was installed",
+                    "body": message
+                },
                 oauth_token=installation_access_token["token"],
             )
 
@@ -170,6 +180,8 @@ Both issue number, and the URL are returned in the response of the API call (see
 
 
 Commit that file, push it to GitHub, and deploy it in Heroku.
+
+Go here for the `completed solution <https://github.com/Mariatta/github_app_boilerplate/blob/thanks-for-installing/webservice/__main__.py#L50-L76>`_.
 
 
 Install your bot
@@ -248,7 +260,7 @@ field. It could be an ``OWNER``, ``MEMBER``, ``CONTRIBUTOR``, or ``None``,
 If the ``author_association`` field is empty, you can guess that they are a
 first time contributor. (access this data as ``event.data["pull_request"]["author_association"]``).
 
-See my `solution here <https://github.com/Mariatta/github_app_boillerplate/blob/thanks-for-pr/webservice/__main__.py#L83-L96>`_.
+See my `solution here <https://github.com/Mariatta/github_app_boilerplate/blob/fe1a15bc61078228ef1b67e62fbdef3201a3096d/webservice/__main__.py#L80-L101>`_.
 
 .. _react_to_comments:
 
@@ -271,6 +283,8 @@ Try it out on your own.
 
 - The API documentation for reacting to an issue comment is here: https://developer.github.com/v3/reactions/#create-reaction-for-an-issue-comment
 
+See my solution on `how to react to issue comments here <https://github.com/Mariatta/github_app_boilerplate/blob/b37965c1c409ed9951ebfb84a632a029290b2d01/webservice/__main__.py#L105-L124>`_.
+
 .. _label_prs:
 
 Label the pull request
@@ -282,3 +296,4 @@ have it automatically apply a label**. This can be a "pending review" or
 
 The relevant API call is this: https://developer.github.com/v3/issues/#edit-an-issue
 
+`Here's the solution <https://github.com/Mariatta/github_app_boilerplate/blob/a81e9416d97452199e4f8f3620b8dfa7d711ffa4/webservice/__main__.py#L104-L109>`_.
