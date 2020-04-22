@@ -227,6 +227,8 @@ Bonus exercise
 
     You can only react on issues that are still **open**.
 
+Download the solution for  :download:`reacting onn an issue. <./codes/react-on-open-issue.py>`
+
 
 .. _`Profile Settings`: https://github.com/settings/profile
 .. _`Developer Settings`: https://github.com/settings/developers
