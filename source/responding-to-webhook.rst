@@ -87,7 +87,7 @@ The API calls will need to be change as follows::
 Let's now think about the ``url`` in this case. Previously, you might have constructed
 the url manually as follows::
 
-   url = f"/repos/mariatta/strange-relationship/issues/"
+   url = f"/repos/mariatta/strange-relationship/issues"
 
 We do we know which repository your app was installed to?
 
@@ -114,7 +114,7 @@ Notice that the repository name is provided in the webhook, under the list of
 "repositories". So we can iterate on it and construct the url as follows::
 
     for repository in event.data['repositories']:
-        url = f"/repos/{repository['full_name'}/issues/"
+        url = f"/repos/{repository['full_name'}/issues"
 
 
 The next piece we want to figure out is what should the comment message be. For
@@ -154,7 +154,7 @@ comment::
         message = f"Thanks for installing me, @{maintainer}! (I'm a bot)."
 
         for repository in event.data["repositories_added"]:
-            url = f"/repos/{repository['full_name']}/issues/"
+            url = f"/repos/{repository['full_name']}/issues"
             response = await gh.post(
                 url,
                 data={
