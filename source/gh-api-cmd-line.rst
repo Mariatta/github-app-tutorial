@@ -221,7 +221,15 @@ Download the solution for  :download:`closing an issue. <./codes/comment-on-issu
 Bonus exercise
 --------------
 
-`Add reaction`_ to an issue.
+`Add reaction`_ to an issue. You will need to pass in the ``Accept`` header ``application/vnd.github.squirrel-girl-preview+json``
+in the API call. You can do this by passing it as ``accept`` argument when
+calling ``gh.post``.  Example::
+
+    await gh.post(
+        url,
+        data=...,
+        accept="application/vnd.github.squirrel-girl-preview+json"
+    )
 
 .. note::
 
