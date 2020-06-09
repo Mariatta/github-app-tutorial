@@ -114,12 +114,12 @@ Notice that the repository name is provided in the webhook, under the list of
 "repositories". So we can iterate on it and construct the url as follows::
 
     for repository in event.data['repositories']:
-        url = f"/repos/{repository['full_name'}/issues"
+        url = f"/repos/{repository['full_name']}/issues"
 
 
 The next piece we want to figure out is what should the comment message be. For
 this exercise, we want to thank the author, and say something like
-"Thanks for installing me, @author!".get(
+"Thanks for installing me, @author!".
 
 Take a look again at the issue event payload::
 
