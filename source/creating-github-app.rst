@@ -61,7 +61,7 @@ More reading: https://developer.github.com/apps/building-github-apps/authenticat
 
 How exactly can we create the ``installation access token`` from an ``installation_id``?
 The documentation linked above has more details, but the process is as follows.
-We will be creating a JWT (JSON web token with the GitHub App's ID, and GitHub
+We will be creating a JWT (JSON web token) with the GitHub App's ID, and GitHub
 App's Private Key. We will then pass in the JWT and ``installation_id`` to GitHub,
 and GitHub will provide us with an ``installation_access_token``.
 
